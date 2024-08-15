@@ -85,6 +85,16 @@ function isEqual(s) {
     return equal;
 }
 
+function getString(s) {
+    if (s == null) {
+        return "0"
+    } else if (s == "r") {
+        return "2"
+    } else if (s == "y") {
+        return "1"
+    }
+}
+
 function checkWin() {
     //check columns
     columns = []
@@ -125,8 +135,46 @@ function checkWin() {
         var b1 = rows[i].substring(0, 4);
         var b2 = rows[i].substring(1, 5);
         var b3 = rows[i].substring(2, 6);
+        var b3 = rows[i].substring(3,);
         if (isEqual(b1) || isEqual(b2) || isEqual(b3)) {
             alert("4 in a row side!")
         }
     }
+
+
+    //left right down diagonals
+    var diagonals = []
+    diagonals.push(getString(board[2][0]) + getString(board[3][1]) + getString(board[4][2]) + getString(board[5][3]));
+    diagonals.push(getString(board[1][0]) + getString(board[2][1]) + getString(board[3][2]) + getString(board[4][3]) + getString(board[5][4]));
+    diagonals.push(getString(board[0][0]) + getString(board[1][1]) + getString(board[2][2]) + getString(board[3][3]) + getString(board[4][4]) + getString(board[5][5]));
+    diagonals.push(getString(board[0][1]) + getString(board[1][2]) + getString(board[2][3]) + getString(board[3][4]) + getString(board[4][5]) + getString(board[5][6]));
+    diagonals.push(getString(board[0][2]) + getString(board[1][3]) + getString(board[2][4]) + getString(board[3][5]) + getString(board[4][6]));
+    diagonals.push(getString(board[0][3]) + getString(board[1][4]) + getString(board[2][5]) + getString(board[3][6]));
+    //console.log(diagonals);
+
+    if (isEqual(diagonals[0]) || isEqual(diagonals[5]) || isEqual(diagonals[1].substring(0, 4)) || isEqual(diagonals[1].substring(1, 5))
+        || isEqual(diagonals[4].substring(0, 4)) || isEqual(diagonals[4].substring(1, 5))
+        || isEqual(diagonals[2].substring(0, 4)) || isEqual(diagonals[3].substring(1, 5)) || isEqual(diagonals[2].substring(2, 6))
+        || isEqual(diagonals[3].substring(0, 4)) || isEqual(diagonals[4].substring(1, 5)) || isEqual(diagonals[3].substring(2, 6))) {
+        alert("diagonal1");
+    }
+
+
+    //right left up diagonals
+    diagonals = []
+    diagonals.push(getString(board[3][0]) + getString(board[2][1]) + getString(board[1][2]) + getString(board[0][3]));
+    diagonals.push(getString(board[4][0]) + getString(board[3][1]) + getString(board[2][2]) + getString(board[1][3]) + getString(board[0][4]));
+    diagonals.push(getString(board[5][0]) + getString(board[4][1]) + getString(board[3][2]) + getString(board[2][3]) + getString(board[1][4]) + getString(board[0][5]));
+    diagonals.push(getString(board[5][1]) + getString(board[4][2]) + getString(board[3][3]) + getString(board[2][4]) + getString(board[1][5]) + getString(board[0][6]));
+    diagonals.push(getString(board[5][2]) + getString(board[4][3]) + getString(board[3][4]) + getString(board[2][5]) + getString(board[1][6]));
+    diagonals.push(getString(board[5][3]) + getString(board[4][4]) + getString(board[3][5]) + getString(board[2][6]));
+    //console.log(diagonals);
+
+    if (isEqual(diagonals[0]) || isEqual(diagonals[5]) || isEqual(diagonals[1].substring(0, 4)) || isEqual(diagonals[1].substring(1, 5))
+        || isEqual(diagonals[4].substring(0, 4)) || isEqual(diagonals[4].substring(1, 5))
+        || isEqual(diagonals[2].substring(0, 4)) || isEqual(diagonals[3].substring(1, 5)) || isEqual(diagonals[2].substring(2, 6))
+        || isEqual(diagonals[3].substring(0, 4)) || isEqual(diagonals[4].substring(1, 5)) || isEqual(diagonals[3].substring(2, 6))) {
+        alert("diagonal1");
+    }
+
 }
