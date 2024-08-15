@@ -13,6 +13,7 @@ for (var i = 0; i < (7); i++) {
             while (!isnull) {
                 if (board[ctr][colnum] == null) {
                     board[ctr][colnum] = "y";
+                    document.getElementById(String(colnum) + ctr).style.backgroundColor = "#f7d100";
                     isnull = true;
                 }
                 ctr--;
@@ -32,7 +33,7 @@ for (var i = 0; i < (7); i++) {
     for (var j = 0; j < 6; j++) {
         cell = document.createElement("div");
         cell.classList.add("cell");
-        cell.id = i + j;
+        cell.id = "" + i + j;
         document.getElementById(String(column.id)).appendChild(cell);
     }
 }
