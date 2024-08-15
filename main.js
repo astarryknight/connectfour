@@ -5,6 +5,8 @@ for (var i = 0; i < (7); i++) {
     column.classList.add("column");
 
     column.addEventListener("click", (e) => {
+        turn == "Yellow" ? c = "y" : c = "r"
+        turn == "Yellow" ? h = "#f7d100" : h = "#f70000"
         e.target.id.length < 4 ? colnum = e.target.parentElement.id[3] : colnum = e.target.id[3] //makes sure that even if you click on a cell
         //alert(e.target.id)
         if (board[0][colnum] == null) {
@@ -12,8 +14,8 @@ for (var i = 0; i < (7); i++) {
             var ctr = 5;
             while (!isnull) {
                 if (board[ctr][colnum] == null) {
-                    board[ctr][colnum] = "y";
-                    document.getElementById(String(colnum) + ctr).style.backgroundColor = "#f7d100";
+                    board[ctr][colnum] = c;
+                    document.getElementById(String(colnum) + ctr).style.backgroundColor = h;
                     isnull = true;
                 }
                 ctr--;
@@ -22,8 +24,11 @@ for (var i = 0; i < (7); i++) {
             console.log(board);
 
             checkWin();
-            botMove();
-            checkWin();
+
+            turn == "Yellow" ? turn = "Red" : turn = "Yellow";
+            turn == "Yellow" ? h = "#f7d100" : h = "#f70000"
+            document.getElementById("turn").textContent = turn
+            document.getElementById("turn").style.color = h;
         } else {
             alert("this column is already full!")
         }
@@ -42,7 +47,6 @@ board = []
 turn = "Yellow"
 document.getElementById("turn").textContent = turn;
 document.getElementById("turn").style.color = "#f7d100";
-//"#f70000"
 
 //init board
 for (var i = 0; i < 6; i++) {
@@ -52,6 +56,7 @@ for (var i = 0; i < 6; i++) {
     }
 }
 
+//will fully implement in the future
 function botMove() {
     for (var i = 0; i < 6; i++) {
         if (board[0][i] == null) {
@@ -70,6 +75,7 @@ function botMove() {
         }
     }
     alert("no more room!")
+    location.reload();
 }
 
 function isEqual(s) {
@@ -114,6 +120,7 @@ function checkWin() {
         var b3 = columns[i].substring(2, 6);
         if (isEqual(b1) || isEqual(b2) || isEqual(b3)) {
             alert("4 in a row down!")
+            location.reload();
         }
     }
 
@@ -138,6 +145,7 @@ function checkWin() {
         var b3 = rows[i].substring(3,);
         if (isEqual(b1) || isEqual(b2) || isEqual(b3)) {
             alert("4 in a row side!")
+            location.reload();
         }
     }
 
@@ -156,7 +164,8 @@ function checkWin() {
         || isEqual(diagonals[4].substring(0, 4)) || isEqual(diagonals[4].substring(1, 5))
         || isEqual(diagonals[2].substring(0, 4)) || isEqual(diagonals[3].substring(1, 5)) || isEqual(diagonals[2].substring(2, 6))
         || isEqual(diagonals[3].substring(0, 4)) || isEqual(diagonals[4].substring(1, 5)) || isEqual(diagonals[3].substring(2, 6))) {
-        alert("diagonal1");
+        alert("4 in a row diagonal!");
+        location.reload();
     }
 
 
@@ -174,7 +183,8 @@ function checkWin() {
         || isEqual(diagonals[4].substring(0, 4)) || isEqual(diagonals[4].substring(1, 5))
         || isEqual(diagonals[2].substring(0, 4)) || isEqual(diagonals[3].substring(1, 5)) || isEqual(diagonals[2].substring(2, 6))
         || isEqual(diagonals[3].substring(0, 4)) || isEqual(diagonals[4].substring(1, 5)) || isEqual(diagonals[3].substring(2, 6))) {
-        alert("diagonal1");
+        alert("4 in a row diagonal!");
+        location.reload();
     }
 
 }
