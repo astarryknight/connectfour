@@ -1,0 +1,59 @@
+html {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: "Roboto", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+}
+
+.cell {
+    border-radius: 50%;
+    width: 3em;
+    height: 3em;
+    background-color: white;
+    margin: 1em;
+}
+
+.column {
+    border: 1px solid rgb(55, 90, 247);
+}
+
+.column:hover {
+    border: 1px dotted yellow;
+    border-radius: 2em;
+}
+
+#main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    flex-direction: column;
+}
+
+#board {
+    display: flex;
+    grid-template-rows: repeat(6, 1fr);
+    background-color: rgb(55, 90, 247);
+    width: 40em;
+    height: 30em;
+    border-radius: 1em;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+#indicator_box {
+    width: 40em;
+    height: 3em;
+    border: 1px solid black;
+}
+
+#indicator {
+    height: 100%;
+    width: 3em;
+    border-radius: 50%;
+}
